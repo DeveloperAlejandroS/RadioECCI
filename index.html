@@ -1,56 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio ECCI</title>
-    <link rel="stylesheet" href="/assets/Logo.png">
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a class="logo" href="#Banner">
-                <img src="assets/Logo.png" alt="RadioECCI" />
-            </a>
-            <nav>
-                <a href="#Tune"> Sintonizar</a>
-                <a href="#AboutUs"> Sobre nosotros</a>
-            </nav>
-        </div>
-    </header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.1.1/plyr.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/plyr/2.1.1/plyr.min.css" rel="stylesheet">
 
-    <section id="Banner">
-        <h1>RADIO <span class="ascent">E</span><span class="ascent2">C</span><span class="ascent3">C</span><span class="ascent">I</span> 2023</h1>
-        <p>Gracias por unirte a nosotros en Radio ECCI. ¡Comencemos este viaje juntos.</p>
-        <form action="#Tune">
-            <button>SINTONIZAR</button>
-        </form>
-    </section>
-
-    <section id="AboutUs">
-        <div class="container">
-            <h1>Acerca de nosotros!</h1>
-            <p>RadioECCI conectate y sumérgete en un fascinante universo de conocimiento, cultura y entretenimiento. Estamos aquí para mantenerte informado, inspirarte y llenarte de energía.</p>
-        </div>
-        
-    </section>  
-    <section id="Tune">
-        <div class="container">
-            <h1>Escuchanos en vivo!</h1>
-            <img id="OnAir" src="assets/live.png" alt="OnAir" style="display: none;" />
-            <img id="Offline" src="assets/Offline.png" alt="Offline" style="display: block;" />
-            <!--listen2myradio.com SHOUTcast Flash Player-->
-	            <p id='preview'></p><script id='myscript' language='javascript' src='http://flashplayer.listen2myradio.com/getInfo.js?id=8640e5m3qfc3q6bkh6bqfjo311s71'></script>
-	        <!--End Player-->
-        </div>
-    </section>
-    <section id="footer">
-        <div class="container">
-            <p>©RadioECCI</p>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="plyr__container">
+  <div class="plyr__controls">
+    <div class="plyr__progress">
+      <div class="plyr__progress-bar" style="width: 0%"></div>
+    </div>
+    <div class="plyr__volume-controls">
+      <input type="range" class="plyr__volume-range" min="0" max="100" value="50">
+      <div class="plyr__volume-meter" style="width: 50%"></div>
+    </div>
+    <div class="plyr__play-pause-button">
+      <i class="plyr_icon plyr_icon-play"></i>
+    </div>
+    <div class="plyr__mute-button">
+      <i class="plyr_icon plyr_icon-mute"></i>
+    </div>
+    <div class="plyr__prev-button">
+      <i class="plyr_icon plyr_icon-skip-backward"></i>
+    </div>
+    <div class="plyr__next-button">
+      <i class="plyr_icon plyr_icon-skip-forward"></i>
+    </div>
+  </div>
+  <div class="plyr__player">
+    <audio src="https://example.com/audio.mp3"></audio>
+  </div>
+</div>
