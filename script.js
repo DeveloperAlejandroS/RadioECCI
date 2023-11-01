@@ -1,37 +1,21 @@
-const reproductor = document.getElementById('reproductor');
-const OnAir = document.getElementById('OnAir');
-const Offline = document.getElementById('Offline');
+const spreakerPlayer = document.querySelector('.spreaker-player');
+const imagenReproductor = document.getElementById('imagenReproductor');
 
-reproductor.addEventListener('play', () => {
-    // Cuando el reproductor está sonando (online)
-    OnAir.style.display = 'block';
-    Offline.style.display = 'none';
-});
+spreakerPlayer.addEventListener('loadeddata', () => {
+    const spreakerIframe = spreakerPlayer.querySelector('iframe');
+    const spreakerWindow = spreakerIframe.contentWindow;
 
-reproductor.addEventListener('pause', () => {
-    // Cuando el reproductor está en pausa (offline)
-    OnAir.style.display = 'none';
-    Offline.style.display = 'block';
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtén el reproductor de audio
-    var audioPlayer = document.getElementById('reproductor');
-    
-    // Función para detectar si el reproductor de audio es oscuro
-    function esReproductorOscuro() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Función para cambiar la imagen cuando el reproductor está en reproducción
+    function cambiarImagenReproduccion() {
+        imagenReproductor.src = 'Assets/img/live.png';
     }
 
-    // Obtén la tarjeta
-    var tarjeta = document.querySelector('.card');
-
-    // Establece un color predeterminado para la tarjeta
-    tarjeta.style.backgroundColor = '#f1f3f4'; // Fondo blanco por defecto
-
-    // Si el reproductor de audio es oscuro, cambia el color de fondo de la tarjeta
-    if (esReproductorOscuro()) {
-        tarjeta.style.backgroundColor = '#1a1a1a'; // Fondo oscuro si el modo oscuro está activado
+    // Función para cambiar la imagen cuando el reproductor está en pausa
+    function cambiarImagenPausa() {
+        imagenReproductor.src = 'Assets/img/Offline.png';
     }
-});
 
+    // Detectar eventos de reproducción y pausa en el reproductor de Spreaker
+    spreakerWindow.addEventListener('play', cambiarImagenReproduccion);
+    spreakerWindow.addEventListener('pause', cambiarImagenPausa);
+});
